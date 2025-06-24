@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Downloader</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <h1>YouTube Downloader</h1>
+            </div>
+        </div>
+        <div id="status" class="status"><span>Loading...</span></div>
+        <div id="videoInfo" class="video-info" style="display:none;">
+            <div class="thumbnail">
+                <img id="videoThumbnail" src="" alt="Thumbnail">
+            </div>
+            <div class="details">
+                <h3 id="videoTitle"></h3>
+                <p id="videoChannel"></p>
+                <p id="videoDuration"></p>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="format-selection">
+                <label class="radio-group">
+                    <input type="radio" name="format" value="video" checked>
+                    <span class="label">Video</span>
+                </label>
+                <label class="radio-group">
+                    <input type="radio" name="format" value="audio">
+                    <span class="label">Audio</span>
+                </label>
+            </div>
+            <div class="quality-selection" id="videoQualityGroup">
+                <label for="videoQuality">Quality</label>
+                <select id="videoQuality">
+                    <option value="1080p">1080p</option>
+                    <option value="720p">720p</option>
+                    <option value="480p">480p</option>
+                    <option value="360p">360p</option>
+                </select>
+            </div>
+            <button id="downloadBtn" class="download-btn">Download</button>
+            <div id="spinner" class="spinner">
+                <svg viewBox="0 0 50 50">
+                    <circle cx="25" cy="25" r="20" fill="none" stroke="#222" stroke-width="5" stroke-linecap="round" stroke-dasharray="31.4 31.4" stroke-dashoffset="0"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
