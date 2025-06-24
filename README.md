@@ -1,81 +1,93 @@
-# YouTube Downloader Pro
+# 🎬 YouTube Downloader Pro
 
-A Chrome extension and Node.js backend to download YouTube videos and audio in high quality.
+A powerful Chrome extension with a local Node.js backend that allows you to download YouTube videos and audio in high quality using `yt-dlp` and `ffmpeg`.
 
-## Features
+---
 
-- Download YouTube videos in MP4 format (1080p, 720p, 480p, 360p)
-- Download audio in MP3 format
-- Simple Chrome extension popup UI
-- Uses a local Node.js server with `yt-dlp` and `ffmpeg` for processing
+## 🚀 Features
 
-## Project Structure
+- 📥 Download YouTube **videos** in MP4 format (1080p, 720p, 480p, 360p)
+- 🎧 Download **audio only** in high-quality MP3 format
+- ⚡ Clean and simple **Chrome extension UI**
+- 🔧 Local processing — no third-party servers
+- 🔌 Built with `yt-dlp`, `ffmpeg`, and Node.js
+
+---
+
+## 📁 Project Structure
 
 ```
-extension/
-  background.js
-  content.js
-  manifest.json
-  popup.css
-  popup.html
-  popup.js
-  icons/
-    icon128.png
-    icon16.png
-    icon48.png
-server/
-  package.json
-  server.js
+youtube-downloader/
+│
+├── extension/           # Chrome extension files
+│   ├── popup.html       # Extension UI
+│   ├── popup.css        # Styling
+│   ├── popup.js         # UI logic
+│   ├── content.js       # Script to extract video data
+│   ├── background.js    # Extension background service
+│   ├── manifest.json    # Chrome extension config
+│   └── icons/           # Extension icons
+│       └── icon16.png
+│       └── icon48.png
+│       └── icon128.png
+│
+└── server/              # Node.js backend
+    ├── server.js        # Express server with yt-dlp + ffmpeg
+    └── package.json     # Node dependencies
 ```
 
-## Prerequisites
+---
+
+## ✅ Requirements
 
 - [Node.js](https://nodejs.org/)
-- [yt-dlp](https://github.com/yt-dlp/yt-dlp) installed and available in your system PATH
-- [ffmpeg](https://ffmpeg.org/) installed and available in your system PATH
-- Google Chrome
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) (must be in your system's PATH)
+- [ffmpeg](https://ffmpeg.org/) (must be in your system's PATH)
+- Google Chrome (for the extension)
 
-## Setup
+---
 
-### 1. Backend Server
+## ⚙️ Setup Instructions
 
-1. Open a terminal and navigate to the `server` directory:
+### 🔌 1. Start the Backend Server
 
-    ```sh
-    cd server
-    ```
+```bash
+cd server
+npm install
+npm start
+```
 
-2. Install dependencies:
+The backend will run at: [http://localhost:3000](http://localhost:3000)
 
-    ```sh
-    npm install
-    ```
+---
 
-3. Start the server:
+### 🧩 2. Install the Chrome Extension
 
-    ```sh
-    npm start
-    ```
+1. Open Chrome and navigate to `chrome://extensions/`
+2. Enable **Developer mode** (top right toggle)
+3. Click **Load unpacked**
+4. Select the `extension/` folder
 
-   The server will run at [http://localhost:3000](http://localhost:3000).
+---
 
-### 2. Chrome Extension
+## 📓 Usage
 
-1. Open Chrome and go to `chrome://extensions/`
-2. Enable "Developer mode" (top right)
-3. Click "Load unpacked" and select the `extension` folder
-4. The extension should now appear in your browser
+1. Go to any YouTube video page
+2. Click the **YouTube Downloader Pro** extension icon
+3. Select format (**Video** or **Audio**) and desired quality
+4. Click **Download**
+5. The extension communicates with your local server and downloads the file
 
-## Usage
+---
 
-1. Navigate to a YouTube video page
-2. Click the YouTube Downloader Pro extension icon
-3. Choose "Video" or "Audio" and select the desired quality
-4. Click "Download"
-5. The extension will communicate with the local server and download the file
+## 💡 Notes
 
-## Notes
+- The local server must be running while using the extension
+- All downloads are processed **locally** — no data is sent to third-party servers
+- Ensure `yt-dlp` and `ffmpeg` are properly installed and accessible via command line
 
-- The backend server must be running for the extension to work.
-- Downloads are processed locally; no data is sent to third-party servers.
-- Make sure `yt-dlp` and `ffmpeg` are installed and accessible from your command line.
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
